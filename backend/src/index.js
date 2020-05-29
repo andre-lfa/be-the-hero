@@ -1,8 +1,10 @@
 const express = require('express');
+const routes = require('./routes');
 
 const app = express();
 
 app.use(express.json());
+app.use(routes);
 
 // Tipos de Parâmetros:
 
@@ -10,15 +12,10 @@ app.use(express.json());
 // Route params: Paramêtros não nomeado utilizados para identificar recursos // request.params
 // Request Body: Corpo da requisição, utilizado para alterar ou criar recursos
 
-app.post('/users', (request, response) => {
-    const body = request.body;
+// Bancos de Dados: 
 
-    console.log(body);
+// SQL: MySQL, SQLite, PostgreSQL, Oracle
+// NoSQL: MongDB, CouchDB, etc.
 
-    return response.json({
-        evento: 'Semana Omnistack 11',
-        aluno: 'André LFA'
-    })
-});
 
 app.listen('3333');
