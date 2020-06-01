@@ -1,4 +1,6 @@
 import React from 'react';
+import Logon from './pages/Logon';
+import './global.css'
 
 // JSX = JavaScript XML 
 
@@ -6,9 +8,7 @@ import React from 'react';
 
 function App() {
   return (
-    <h1>
-      Hello World
-    </h1>
+    <Logon />
   );
 }
 
