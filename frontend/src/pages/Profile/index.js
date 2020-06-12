@@ -20,6 +20,21 @@ function Profile () {
         })
     }, [ongId]);
 
+    async function handleDeleteIncidents(id) {
+        try {
+            api.delete(`incidents/${id}`, {
+                headers : {
+                    Authorization: ongId
+                }
+            }); 
+            
+            setIncidents(incidents.filter(incident => incident.id !== id));
+        } catch (error) {
+            alert('Erro ao tentar deletar o registro, tente novamente!');
+        }
+       
+    }
+
     return(
         <div className="profile-container">
             <header>
@@ -42,7 +57,7 @@ function Profile () {
                     <p>{incident.description}</p>
                     <strong>VALOR</strong>
                     <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL'}).format(incident.value)}</p>
-                    <button type="button">
+                    <button type="button" onClick={() => handleDeleteIncidents(incident.id)}>
                         <FiTrash2 size={20} color="#a8a8b3"/>
                     </button>
                 </li>
